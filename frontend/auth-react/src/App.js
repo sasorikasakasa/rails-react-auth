@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 //ページのコンポーネント系
 import Home from "./components/pages/Home"
-import SignUp from "./components/pages/SignUp"
-import SignIn from "./components/pages/SignIn"
+import SignUp from "./components/pages/auth/SignUp"
+import SignIn from "./components/pages/auth/SignIn"
+import Event from "./components/pages/Event"
+
 
 //共通のコンポーネント
 import CommonLayout from "./components/layouts/CommonLayout"
@@ -89,6 +91,7 @@ function App() {
               <Route exact path="/sign_in" ><SignIn/></Route>
               {/* <Route exact path="/">{IsSignedIn ? <Home/>: <Redirect to="/sign_in"/>}</Route> */}
               <Route exact path="/"><Home/></Route>
+              <Route exact path="/events"><Event/></Route>
             </Switch>
           </CommonLayout>
         </AuthContext.Provider>

@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react"
 import { useHistory } from "react-router-dom"
 import Cookies from "js-cookie"
 
-import { AuthContext } from "../../App"
-import { signUp } from "../../lib/api/auth"
-import AlertMessage from "../utils/AlertMessage"
+import { AuthContext } from "App"
+import { signUp } from "lib/api/auth"
+import AlertMessage from "components/utils/AlertMessage"
 
 //レイアウト系
 import { makeStyles, Theme } from "@material-ui/core/styles"
@@ -39,7 +39,8 @@ const　SignUp = () => {
 
   const { setIsSignedIn , setCurrentUser } = useContext(AuthContext)
 
-  const [name, setName] = useState("")
+  const [first_name, setFirstName] = useState("")
+  const [last_name, setLastName] = useState("")
   const [email ,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -51,7 +52,8 @@ const　SignUp = () => {
     e.preventDefault()
 
     const params = {
-      name: name,
+      first_name: first_name,
+      last_name: last_name,
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation
@@ -92,10 +94,19 @@ const　SignUp = () => {
               variant="outlined"
               required
               fullWidth
-              label="Name"
-              value={name}
+              label="First_name"
+              value={first_name}
               margin="dense"
-              onChange={event => setName(event.target.value)}
+              onChange={event => setFirstName(event.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              required
+              fullWidth
+              label="Last_name"
+              value={last_name}
+              margin="dense"
+              onChange={event => setLastName(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -134,7 +145,7 @@ const　SignUp = () => {
               size="large"
               fullWidth
               color="default"
-              disabled={!name || !email || !password || !passwordConfirmation ? true : false}
+              disabled={!first_name || !email || !password || !passwordConfirmation ? true : false}
               className={classes.submitBtn}
               onClick={handleSubmit}
             >

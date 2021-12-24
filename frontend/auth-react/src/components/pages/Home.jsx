@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 
-import { AuthContext } from "../../App"
+import { AuthContext } from "App"
 import Cookies from "js-cookie"
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
           <>
              <h1>Signed in successfully!</h1>
             <h2>Email: {currentUser?.email}</h2>
-            <h2>Name: {currentUser?.name}</h2>
+            <h2>Name: {currentUser?.firstName} {currentUser?.lastName}</h2>
           </>
         ):(
         <h1>Not signed in</h1>

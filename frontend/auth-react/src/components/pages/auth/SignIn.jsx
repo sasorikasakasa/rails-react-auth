@@ -14,9 +14,9 @@ import Box from "@material-ui/core/Box"
 
 
 
-import { AuthContext } from "../../App"
-import { signIn } from "../../lib/api/auth"
-import AlertMessage from "../utils/AlertMessage"
+import { AuthContext } from "App"
+import { signIn } from "lib/api/auth"
+import AlertMessage from "components/utils/AlertMessage"
 
 const useStyles = makeStyles((theme) => ({
   container: {
